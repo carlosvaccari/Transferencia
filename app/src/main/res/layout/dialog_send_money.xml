@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:background="@drawable/background_dialog"
+                                                   android:layout_width="match_parent"
+                                                   app:layout_constraintRight_toRightOf="parent"
+                                                   app:layout_constraintLeft_toLeftOf="parent"
+                                                   android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/imageview_close"
+            style="@style/IconCloseStyle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_close"/>
+
+    <br.com.cvaccari.moneytransfer.custom.view.AvatarImageView
+            android:id="@+id/imageview_profile"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:textColor="@color/mainText"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/mainText"
+            app:avatarBackgroundColor="@color/endGradientColor"
+            app:textSize="42sp"/>
+
+    <TextView
+            android:id="@+id/textview_user_name"
+            app:layout_constraintTop_toBottomOf="@id/imageview_profile"
+            android:layout_width="wrap_content"
+            android:text="Juliana Trindade"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/textview_user_phone"
+            app:layout_constraintTop_toBottomOf="@id/textview_user_name"
+            android:layout_width="wrap_content"
+            android:text="juju@email.com"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/textview_amount_label"
+            app:layout_constraintTop_toBottomOf="@id/textview_user_phone"
+            android:layout_width="wrap_content"
+            android:text="@string/transfer_amount_to_send"
+            android:textSize="12sp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content"/>
+
+    <EditText
+            android:id="@+id/editext_amount_value"
+            android:layout_width="0dp"
+            android:hint="R$ 0,00"
+            android:textSize="42sp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColorHint="@color/action_button"
+            app:layout_constraintTop_toBottomOf="@id/textview_amount_label"
+            android:textColor="@color/action_button"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:background="@drawable/background_edittext"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="60dp"/>
+
+    <Button
+            android:id="@+id/button_send_money"
+            style="@style/ActionButtonTheme"
+            android:text="@string/transfer_send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/editext_amount_value"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

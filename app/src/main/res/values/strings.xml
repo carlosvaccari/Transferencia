@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MoneyTransfer</string>
+
+
+    <string name="transfer_amount_to_send">Valor a enviar:</string>
+    <string name="transfer_send">Enviar</string>
+    <string name="money_transfer_sending">Estamos enviando seu dinheiro...</string>
+    <string name="money_transfer_success">Tudo certo! O dinheiro já foi enviado :)</string>
+    <string name="my_email">carlosvaccari@gmail.com</string>
+    <string name="my_name">Carlos Vaccari</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:background="@null"
+                                                   android:foreground="?attr/selectableItemBackgroundBorderless"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="100dp">
+
+    <View android:layout_width="0dp"
+          android:layout_height="2dp"
+          android:layout_marginRight="@dimen/margin_large"
+          android:layout_marginLeft="@dimen/margin_large"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          android:background="@color/divider"/>
+
+    <br.com.cvaccari.moneytransfer.custom.view.AvatarImageView
+            android:id="@+id/imageview_profile"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="@dimen/margin_large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:strokeWidth="2dp"
+            app:textColor="@color/mainText"
+            app:strokeColor="@color/mainText"
+            app:avatarBackgroundColor="@color/endGradientColor"
+            app:text="Carlos Vaccari"
+            app:textSize="22sp"/>
+
+    <TextView
+            android:id="@+id/textview_first_text"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainText"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:gravity="left"
+            android:paddingRight="@dimen/margin_large"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="16dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="Carlos Vaccari"
+            app:layout_constraintBottom_toTopOf="@id/textview_second_text"
+            android:layout_marginLeft="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imageview_profile"/>
+
+    <TextView
+            android:id="@+id/textview_second_text"
+            android:layout_height="wrap_content"
+            android:text="11 983684628"
+            android:layout_width="0dp"
+            android:gravity="left"
+            android:paddingRight="@dimen/margin_large"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="gone"
+            android:textSize="16dp"
+            android:textColor="@color/secondary_text"
+            app:layout_constraintTop_toBottomOf="@id/textview_first_text"
+            app:layout_constraintBottom_toTopOf="@id/textview_third_text"
+            android:layout_marginLeft="@dimen/margin_medium"
+            app:layout_constraintLeft_toRightOf="@id/imageview_profile"/>
+
+    <TextView
+            android:id="@+id/textview_third_text"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:gravity="left"
+            android:paddingRight="@dimen/margin_large"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="R$ 120,00"
+            android:textColor="@color/secondary_text"
+            android:textSize="16dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_second_text"
+            android:layout_marginLeft="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imageview_profile"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

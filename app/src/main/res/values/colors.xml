@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#232C3B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="action_button">#00AFAC</color>
+
+    //Gradiente
+    <color name="startGradientColor">#232C3B</color>
+    <color name="endGradientColor">#004886</color>
+
+    <color name="mainText">#00A09E</color>
+    <color name="imageProfileBackground">#003A5E</color>
+    <color name="secondary_text">#007B83</color>
+    <color name="divider">#0B3E5c</color>
+    <color name="dialogBackground">#14586D</color>
+    <color name="gray">#CCCCCC</color>
+    <color name="graphicAmount">#009D9B</color>
+    <color name="graphicSphere">#004987</color>
+
+</resources>
