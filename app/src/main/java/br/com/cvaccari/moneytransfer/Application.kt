@@ -7,6 +7,7 @@ import br.com.cvaccari.moneytransfer.main.MainPresenter
 import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferenceContract
 import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferencePresenter
 import br.com.cvaccari.moneytransfer.transferencehistory.ExtractContract
+import br.com.cvaccari.moneytransfer.transferencehistory.ExtractFacade
 import br.com.cvaccari.moneytransfer.transferencehistory.ExtractPresenter
 import br.com.cvaccari.moneytransfer.utils.SharedPrefsStorage
 import org.kodein.di.KodeinAware
@@ -24,6 +25,9 @@ class Application() : Application(), KodeinAware {
             bind<DataFacade>() with provider {
                 DataFacade()
             }
+            bind<ExtractFacade>() with provider {
+                ExtractFacade()
+            }
             bind<SharedPrefsStorage>() with provider {
                 SharedPrefsStorage(this@Application)
             }
@@ -34,7 +38,7 @@ class Application() : Application(), KodeinAware {
                 MainPresenter(instance(), instance())
             }
             bind<ExtractContract.Presenter>() with provider {
-                ExtractPresenter(instance(), instance())
+                ExtractPresenter(instance(), instance(), instance())
             }
         }
     }

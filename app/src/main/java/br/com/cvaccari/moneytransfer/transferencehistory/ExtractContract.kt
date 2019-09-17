@@ -11,7 +11,7 @@ interface ExtractContract {
 
         fun showError(message: String?)
 
-        fun showGraphicData(graphicItens: MutableList<GraphicItemVO>)
+        fun showGraphicData(graphicItens: List<GraphicItemVO>)
 
         fun showLoading(show: Boolean)
     }

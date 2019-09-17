@@ -94,19 +94,20 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
     }
 
     override fun showOperationInitialized() {
-        VisualFeedbackUtils.showSnackbar(getString(R.string.money_transfer_sending), view!!)
+        VisualFeedbackUtils.showSnackbar(getString(R.string.money_transfer_sending), view)
     }
 
     override fun showSucess() {
         //HANDLER APENAS PARA SENSAÇÃO DE HAVER UMA CHAMADA REAL
         Handler().postDelayed({
             view?.apply {
-                VisualFeedbackUtils.showSnackbar(getString(R.string.money_transfer_success), view!!)
+                VisualFeedbackUtils.showSnackbar(getString(R.string.money_transfer_success), view)
             }
         }, 2000)
     }
 
-    override fun showError(errorMessage: String) {
+    override fun showError(errorMessage: String?) {
+        VisualFeedbackUtils.showSnackbar(errorMessage ?: getString(R.string.error_unkown), view)
     }
 
     override fun onDestroy() {

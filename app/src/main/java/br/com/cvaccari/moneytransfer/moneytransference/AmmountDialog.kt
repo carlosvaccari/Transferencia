@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.DialogFragment
 import br.com.cvaccari.moneytransfer.R
-import br.com.cvaccari.moneytransfer.custom.view.AvatarImageView.SHOW_IMAGE
+import br.com.cvaccari.moneytransfer.custom.view.AvatarImageView.Companion.SHOW_IMAGE
 import br.com.cvaccari.moneytransfer.data.remote.vo.ContactVO
 import br.com.cvaccari.moneytransfer.data.remote.vo.SendMoneyRequestVO
 import br.com.cvaccari.moneytransfer.listeners.OnConfirmedListener
@@ -68,7 +68,7 @@ class AmountDialog : DialogFragment(), KodeinAware {
 
         textview_user_name.text = contact.name
         textview_user_phone.text = contact.phone.phoneNumberFormat()
-        imageview_profile.setText(contact.name)
+        imageview_profile.text = contact.name
         contact.photo?.let {
             val id = context!!.resources.getIdentifier(contact.photo, "drawable", context!!.packageName)
             imageview_profile.state = SHOW_IMAGE

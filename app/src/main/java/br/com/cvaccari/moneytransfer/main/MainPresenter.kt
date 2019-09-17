@@ -13,11 +13,11 @@ class MainPresenter(val dataFacade: DataFacade, val sharedPrefsStorage: SharedPr
     private var mSubscribe: Disposable? = null
 
     override fun getToken(name: String, email: String) {
-        mSubscribe = dataFacade.generateToken("as", "ad")
+        mSubscribe = dataFacade.generateToken(name, email)
             .subscribe({
                 sharedPrefsStorage.saveUserToken(it.token)
             }, {
-                mView?.showError(it.message ?: "Erro desconhecido")
+                mView?.showError(it.message)
             })
     }
 

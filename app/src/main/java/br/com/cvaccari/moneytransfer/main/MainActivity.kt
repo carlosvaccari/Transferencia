@@ -2,7 +2,6 @@ package br.com.cvaccari.moneytransfer.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
 

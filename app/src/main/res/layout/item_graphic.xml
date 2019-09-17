@@ -3,6 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
         android:minHeight="200dp"
         android:orientation="vertical">
 
@@ -11,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/margin_medium"
-            android:text="1234,20"
+            tools:text="1234,20"
             android:textColor="@color/graphicAmount"
             app:layout_constraintBottom_toTopOf="@id/view_graphich_height"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -19,8 +20,8 @@
 
     <View
             android:id="@+id/view_graphich_height"
-            android:layout_width="3dp"
-            android:layout_height="1dp"
+            android:layout_width="@dimen/stroke_size"
+            android:layout_height="@dimen/divider_size"
             android:background="@drawable/background_graphic_progress"
             app:layout_constraintBottom_toTopOf="@id/imageview_profile"
             app:layout_constraintLeft_toLeftOf="@id/imageview_profile"
@@ -28,8 +29,8 @@
 
     <View
             android:id="@+id/view_dot"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="@dimen/graphic_dot_size"
+            android:layout_height="@dimen/graphic_dot_size"
             android:background="@drawable/ic_circle"
             app:layout_constraintLeft_toLeftOf="@+id/imageview_profile"
             app:layout_constraintRight_toRightOf="@+id/imageview_profile"
@@ -37,16 +38,15 @@
 
     <br.com.cvaccari.moneytransfer.custom.view.AvatarImageView
             android:id="@+id/imageview_profile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/graphic_avatar_size"
+            android:layout_height="@dimen/graphic_avatar_size"
             app:avatarBackgroundColor="@color/endGradientColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:strokeColor="@color/mainText"
-            app:strokeWidth="2dp"
-            app:text="Nome"
+            app:strokeWidth="@dimen/stroke_size"
             app:textColor="@color/mainText"
-            app:textSize="22sp" />
+            app:textSize="@dimen/text_22" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

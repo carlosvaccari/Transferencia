@@ -9,4 +9,6 @@
     <string name="my_email">carlosvaccari@gmail.com</string>
     <string name="my_name">Carlos Vaccari</string>
     <string name="error_unkown">Erro desconhecido</string>
+    <string name="send_money">Enviar dinheiro</string>
+    <string name="send_report">Histórico de envios</string>
 </resources>

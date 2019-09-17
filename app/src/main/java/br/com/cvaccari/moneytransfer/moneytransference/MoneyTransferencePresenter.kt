@@ -21,7 +21,7 @@ class MoneyTransferencePresenter(
             .subscribe({
                 mView?.showUserContacts(it.contactsList)
             }, {
-                mView?.showError(it.message ?: "Erro desconhecido")
+                mView?.showError(it.message)
             })
     }
 
@@ -33,7 +33,7 @@ class MoneyTransferencePresenter(
             .subscribe({
                 mView?.showSucess()
             }, {
-                mView?.showError(it.message ?: "Erro desconhecido")
+                mView?.showError(it.message)
             })
     }
 

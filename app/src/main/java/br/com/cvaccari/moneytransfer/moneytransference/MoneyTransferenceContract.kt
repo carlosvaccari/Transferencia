@@ -9,7 +9,7 @@ interface MoneyTransferenceContract {
     interface View {
         fun showUserContacts(contactsList: List<ContactVO>)
 
-        fun showError(errorMessage: String)
+        fun showError(errorMessage: String?)
 
         fun showOperationInitialized()
 

@@ -8,8 +8,7 @@
 
     <ImageView
             android:id="@+id/imageview_statement_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            style="@style/IconCloseStyle"
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginLeft="@dimen/margin_large"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -20,7 +19,7 @@
             android:id="@+id/textview_fragment_title"
             android:layout_width="wrap_content"
             android:text="Enviar dinheiro"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24"
             app:layout_constraintBottom_toBottomOf="@id/imageview_statement_back"
             app:layout_constraintTop_toTopOf="@id/imageview_statement_back"
             android:textAllCaps="true"

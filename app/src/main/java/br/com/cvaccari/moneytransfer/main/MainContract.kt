@@ -5,7 +5,7 @@ import br.com.cvaccari.moneytransfer.base.BasePresenter
 interface MainContract {
 
     interface View {
-        fun showError(message: String)
+        fun showError(message: String?)
     }
 
     interface Presenter : BasePresenter<View> {

@@ -53,8 +53,8 @@ class MainFragment : BaseFragment(), KodeinAware, MainContract.View {
         }
     }
 
-    override fun showError(message: String) {
-        VisualFeedbackUtils.showSnackbar(message, view!!)
+    override fun showError(message: String?) {
+        VisualFeedbackUtils.showSnackbar(message ?: getString(R.string.error_unkown), view!!)
     }
 
 }

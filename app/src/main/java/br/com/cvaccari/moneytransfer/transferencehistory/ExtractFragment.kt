@@ -16,8 +16,8 @@ import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
 import br.com.cvaccari.moneytransfer.utils.VisualFeedbackUtils
 import kotlinx.android.synthetic.main.content_contacts.*
 import kotlinx.android.synthetic.main.content_graphic_extract.*
-import kotlinx.android.synthetic.main.fragment_extract.*
-import kotlinx.android.synthetic.main.fragment_extract.imageview_statement_back
+import kotlinx.android.synthetic.main.fragment_report.*
+import kotlinx.android.synthetic.main.fragment_report.imageview_statement_back
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
@@ -39,7 +39,7 @@ class ExtractFragment : BaseFragment(), KodeinAware, ExtractContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootview = inflater.inflate(R.layout.fragment_extract, container, false)
+        val rootview = inflater.inflate(R.layout.fragment_report, container, false)
         return rootview
     }
 
@@ -100,7 +100,7 @@ class ExtractFragment : BaseFragment(), KodeinAware, ExtractContract.View {
         )
     }
 
-    override fun showGraphicData(graphicItens: MutableList<GraphicItemVO>) {
+    override fun showGraphicData(graphicItens: List<GraphicItemVO>) {
         this.graphicList.addAll(graphicItens)
         recyclerview_graphic.adapter?.notifyDataSetChanged()
         recyclerview_graphic.scheduleLayoutAnimation()

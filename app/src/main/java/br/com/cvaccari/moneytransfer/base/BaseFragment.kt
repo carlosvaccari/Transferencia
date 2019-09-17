@@ -10,7 +10,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
 
-        var animation = super.onCreateAnimation(transit, enter, nextAnim);
+        var animation = super.onCreateAnimation(transit, enter, nextAnim)
 
         if (animation == null && nextAnim != 0) {
             animation = AnimationUtils.loadAnimation(activity, nextAnim)
