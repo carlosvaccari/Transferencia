@@ -4,11 +4,11 @@ import android.app.Application
 import br.com.cvaccari.moneytransfer.data.remote.DataFacade
 import br.com.cvaccari.moneytransfer.main.MainContract
 import br.com.cvaccari.moneytransfer.main.MainPresenter
-import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferenceContract
-import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferencePresenter
-import br.com.cvaccari.moneytransfer.transferencehistory.ExtractContract
-import br.com.cvaccari.moneytransfer.transferencehistory.ExtractFacade
-import br.com.cvaccari.moneytransfer.transferencehistory.ExtractPresenter
+import br.com.cvaccari.moneytransfer.sendmoney.SendMoneyContract
+import br.com.cvaccari.moneytransfer.sendmoney.SendMoneyPresenter
+import br.com.cvaccari.moneytransfer.report.ReportContract
+import br.com.cvaccari.moneytransfer.report.ReportFacade
+import br.com.cvaccari.moneytransfer.report.ReportPresenter
 import br.com.cvaccari.moneytransfer.utils.SharedPrefsStorage
 import org.kodein.di.KodeinAware
 import org.kodein.di.conf.ConfigurableKodein
@@ -25,20 +25,20 @@ class Application() : Application(), KodeinAware {
             bind<DataFacade>() with provider {
                 DataFacade()
             }
-            bind<ExtractFacade>() with provider {
-                ExtractFacade()
+            bind<ReportFacade>() with provider {
+                ReportFacade()
             }
             bind<SharedPrefsStorage>() with provider {
                 SharedPrefsStorage(this@Application)
             }
-            bind<MoneyTransferenceContract.Presenter>() with provider {
-                MoneyTransferencePresenter(instance(), instance())
+            bind<SendMoneyContract.Presenter>() with provider {
+                SendMoneyPresenter(instance(), instance())
             }
             bind<MainContract.Presenter>() with provider {
                 MainPresenter(instance(), instance())
             }
-            bind<ExtractContract.Presenter>() with provider {
-                ExtractPresenter(instance(), instance(), instance())
+            bind<ReportContract.Presenter>() with provider {
+                ReportPresenter(instance(), instance(), instance())
             }
         }
     }

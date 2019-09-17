@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.transferencehistory
+package br.com.cvaccari.moneytransfer.report
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cvaccari.moneytransfer.R
@@ -23,18 +24,23 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
-class ExtractFragment : BaseFragment(), KodeinAware, ExtractContract.View {
+class ReportFragment : BaseFragment(), KodeinAware, ReportContract.View {
 
     override val kodein: Kodein by kodein()
 
-    private val mPresenter: ExtractContract.Presenter by instance()
+    private val mPresenter: ReportContract.Presenter by instance()
 
     private var graphicList = mutableListOf<GraphicItemVO>()
+
     private var transferList = mutableListOf<TransferItemVO>()
 
+    override fun currentFragment(): Fragment {
+        return this@ReportFragment
+    }
+
     companion object {
-        fun getInstance(): ExtractFragment {
-            return ExtractFragment()
+        fun getInstance(): ReportFragment {
+            return ReportFragment()
         }
     }
 
@@ -72,17 +78,17 @@ class ExtractFragment : BaseFragment(), KodeinAware, ExtractContract.View {
         recyclerview_graphic.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         recyclerview_graphic.setHasFixedSize(true)
         recyclerview_graphic.isNestedScrollingEnabled = false
-        recyclerview_graphic.adapter = ExtractAdapter(graphicList)
+        recyclerview_graphic.adapter = GraphicReportAdapter(graphicList)
         recyclerview_graphic.layoutAnimation = getAnimationController()
 
         //Graphic BG
         recyclerview_graphic_background.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerview_graphic_background.isNestedScrollingEnabled = false
-        recyclerview_graphic_background.adapter = LinesAdapter()
+        recyclerview_graphic_background.adapter = GraphicBackgroundAdapter()
         recyclerview_graphic_background.layoutAnimation = getAnimationController()
 
         //Money Transfer Data
-        var adapter = TransferenceHistoryAdapter(transferList)
+        var adapter = ReportHistoryAdapter(transferList)
         recyclerview_contacts.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerview_contacts.setHasFixedSize(true)
         recyclerview_contacts.isNestedScrollingEnabled = false

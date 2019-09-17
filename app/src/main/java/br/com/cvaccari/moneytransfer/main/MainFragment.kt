@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.base.BaseFragment
 import br.com.cvaccari.moneytransfer.extensions.textToString
 import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
-import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferenceFragment
-import br.com.cvaccari.moneytransfer.transferencehistory.ExtractFragment
+import br.com.cvaccari.moneytransfer.sendmoney.SendMoneyFragment
+import br.com.cvaccari.moneytransfer.report.ReportFragment
 import br.com.cvaccari.moneytransfer.utils.VisualFeedbackUtils
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.kodein.di.Kodein
@@ -22,6 +23,10 @@ class MainFragment : BaseFragment(), KodeinAware, MainContract.View {
     override val kodein: Kodein by kodein()
 
     private val mPresenter: MainContract.Presenter by instance()
+
+    override fun currentFragment(): Fragment {
+        return this@MainFragment
+    }
 
     companion object {
         fun getInstance(): MainFragment {
@@ -45,11 +50,11 @@ class MainFragment : BaseFragment(), KodeinAware, MainContract.View {
 
     private fun initViews() {
         button_send_money.setOnClickListener {
-            FlowManager.showFragment(MoneyTransferenceFragment.getInstance(), fragmentManager)
+            FlowManager.showFragment(SendMoneyFragment.getInstance(), fragmentManager)
         }
 
         button_report.setOnClickListener {
-            FlowManager.showFragment(ExtractFragment.getInstance(), fragmentManager)
+            FlowManager.showFragment(ReportFragment.getInstance(), fragmentManager)
         }
     }
 

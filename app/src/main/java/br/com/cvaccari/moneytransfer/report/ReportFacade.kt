@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.transferencehistory
+package br.com.cvaccari.moneytransfer.report
 
 import br.com.cvaccari.moneytransfer.base.BaseFacade
 import br.com.cvaccari.moneytransfer.data.remote.vo.GraphicItemVO
@@ -7,7 +7,7 @@ import io.reactivex.Observable
 import java.util.*
 import kotlin.Comparator
 
-class ExtractFacade : BaseFacade() {
+class ReportFacade : BaseFacade() {
 
     fun generateGraphicData(transferList: List<TransferItemVO>): Observable<List<GraphicItemVO>> {
         return callOnMainThread(Observable.create {

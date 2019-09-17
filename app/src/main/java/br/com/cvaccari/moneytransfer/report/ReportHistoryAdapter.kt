@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.transferencehistory
+package br.com.cvaccari.moneytransfer.report
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +11,8 @@ import br.com.cvaccari.moneytransfer.extensions.formatToCurrency
 import br.com.cvaccari.moneytransfer.extensions.phoneNumberFormat
 import kotlinx.android.synthetic.main.view_contact.view.*
 
-class TransferenceHistoryAdapter(private val transferenceList: List<TransferItemVO>) :
-    RecyclerView.Adapter<TransferenceHistoryAdapter.ViewHolder>() {
+class ReportHistoryAdapter(private val transferenceList: List<TransferItemVO>) :
+    RecyclerView.Adapter<ReportHistoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)

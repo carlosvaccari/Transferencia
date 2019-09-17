@@ -1,10 +1,10 @@
-package br.com.cvaccari.moneytransfer.moneytransference
+package br.com.cvaccari.moneytransfer.sendmoney
 
 import br.com.cvaccari.moneytransfer.base.BasePresenter
 import br.com.cvaccari.moneytransfer.data.remote.vo.ContactVO
 import br.com.cvaccari.moneytransfer.data.remote.vo.SendMoneyRequestVO
 
-interface MoneyTransferenceContract {
+interface SendMoneyContract {
 
     interface View {
         fun showUserContacts(contactsList: List<ContactVO>)

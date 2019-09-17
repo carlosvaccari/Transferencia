@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.transferencehistory
+package br.com.cvaccari.moneytransfer.report
 
 import br.com.cvaccari.moneytransfer.data.remote.DataFacade
 import br.com.cvaccari.moneytransfer.data.remote.vo.TransferItemVO
@@ -6,13 +6,13 @@ import br.com.cvaccari.moneytransfer.data.remote.vo.TransferRequestVO
 import br.com.cvaccari.moneytransfer.utils.SharedPrefsStorage
 import io.reactivex.disposables.Disposable
 
-class ExtractPresenter(
+class ReportPresenter(
     val dataFacade: DataFacade,
     val sharedPrefsStorage: SharedPrefsStorage,
-    val extractFacade: ExtractFacade
-) : ExtractContract.Presenter {
+    val extractFacade: ReportFacade
+) : ReportContract.Presenter {
 
-    private var mView: ExtractContract.View? = null
+    private var mView: ReportContract.View? = null
 
     private var mSubscribe: Disposable? = null
 
@@ -36,7 +36,7 @@ class ExtractPresenter(
             })
     }
 
-    override fun attachView(view: ExtractContract.View) {
+    override fun attachView(view: ReportContract.View) {
         mView = view
     }
 

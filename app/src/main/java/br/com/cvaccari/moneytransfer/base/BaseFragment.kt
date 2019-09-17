@@ -1,5 +1,6 @@
 package br.com.cvaccari.moneytransfer.base
 
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -16,29 +17,28 @@ abstract class BaseFragment : Fragment() {
             animation = AnimationUtils.loadAnimation(activity, nextAnim)
         }
 
-        if (animation != null) {
-            view?.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        animation?.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationRepeat(p0: Animation?) {
+            }
 
-            animation.setAnimationListener(object : Animation.AnimationListener {
-                override fun onAnimationRepeat(p0: Animation?) {
-                }
+            override fun onAnimationStart(p0: Animation?) {
+            }
 
-                override fun onAnimationStart(p0: Animation?) {
+            override fun onAnimationEnd(p0: Animation?) {
+                if(currentFragment() == getFragmentFromStack()){
+                    (getFragmentFromStack() as BaseFragment).startFragment()
                 }
-
-                override fun onAnimationEnd(p0: Animation?) {
-                    view?.setLayerType(View.LAYER_TYPE_NONE, null)
-                    (currentFragment() as BaseFragment).startFragment()
-                }
-            })
-        }
+            }
+        })
 
         return animation
     }
 
     abstract fun startFragment()
 
-    fun currentFragment(): Fragment {
+    abstract fun currentFragment() : Fragment
+
+    fun getFragmentFromStack(): Fragment {
         return fragmentManager?.findFragmentById(R.id.fragment_content) ?: Fragment()
     }
 

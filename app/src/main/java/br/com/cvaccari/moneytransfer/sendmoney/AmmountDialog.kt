@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.moneytransference
+package br.com.cvaccari.moneytransfer.sendmoney
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

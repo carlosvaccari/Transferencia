@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MoneyTransfer</string>
+    <string name="app_name">Money</string>
 
 
     <string name="transfer_amount_to_send">Valor a enviar:</string>

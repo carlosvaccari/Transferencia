@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.transferencehistory
+package br.com.cvaccari.moneytransfer.report
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +15,8 @@ import br.com.cvaccari.moneytransfer.utils.AnimUtils.getTranslateAnim
 import br.com.cvaccari.moneytransfer.utils.AnimUtils.getValueAnimator
 
 
-class ExtractAdapter(val graphicList: MutableList<GraphicItemVO>) :
-    RecyclerView.Adapter<ExtractAdapter.ViewHolder>() {
+class GraphicReportAdapter(val graphicList: MutableList<GraphicItemVO>) :
+    RecyclerView.Adapter<GraphicReportAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_graphic, parent, false)

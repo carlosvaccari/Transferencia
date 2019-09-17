@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.moneytransference
+package br.com.cvaccari.moneytransfer.sendmoney
 
 import android.os.Bundle
 import android.os.Handler
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import br.com.cvaccari.moneytransfer.ContactsAdapter
@@ -24,7 +25,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
-class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransferenceContract.View {
+class SendMoneyFragment : BaseFragment(), KodeinAware, SendMoneyContract.View {
 
     override val kodein: Kodein by kodein()
 
@@ -32,11 +33,15 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
 
     private var adapter = ContactsAdapter(contactsList)
 
-    private val mPresenter: MoneyTransferenceContract.Presenter by instance()
+    private val mPresenter: SendMoneyContract.Presenter by instance()
+
+    override fun currentFragment(): Fragment {
+        return this@SendMoneyFragment
+    }
 
     companion object {
-        fun getInstance(): MoneyTransferenceFragment {
-            return MoneyTransferenceFragment()
+        fun getInstance(): SendMoneyFragment {
+            return SendMoneyFragment()
         }
     }
 

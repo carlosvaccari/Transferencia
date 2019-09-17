@@ -1,4 +1,4 @@
-package br.com.cvaccari.moneytransfer.moneytransference
+package br.com.cvaccari.moneytransfer.sendmoney
 
 import br.com.cvaccari.moneytransfer.data.remote.DataFacade
 import br.com.cvaccari.moneytransfer.data.remote.vo.SendMoneyRequestVO
@@ -6,12 +6,12 @@ import br.com.cvaccari.moneytransfer.utils.SharedPrefsStorage
 import io.reactivex.disposables.Disposable
 
 
-class MoneyTransferencePresenter(
+class SendMoneyPresenter(
     val dataFacade: DataFacade,
     val sharedPrefsStorage: SharedPrefsStorage
-) : MoneyTransferenceContract.Presenter {
+) : SendMoneyContract.Presenter {
 
-    private var mView: MoneyTransferenceContract.View? = null
+    private var mView: SendMoneyContract.View? = null
 
     private var mSubscribe: Disposable? = null
 
@@ -37,7 +37,7 @@ class MoneyTransferencePresenter(
             })
     }
 
-    override fun attachView(view: MoneyTransferenceContract.View) {
+    override fun attachView(view: SendMoneyContract.View) {
         mView = view
     }
 
