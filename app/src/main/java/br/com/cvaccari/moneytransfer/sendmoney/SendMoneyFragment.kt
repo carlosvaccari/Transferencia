@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
-import br.com.cvaccari.moneytransfer.ContactsAdapter
 import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.base.BaseFragment
 import br.com.cvaccari.moneytransfer.data.remote.vo.ContactVO

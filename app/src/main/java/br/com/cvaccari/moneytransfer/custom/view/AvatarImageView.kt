@@ -10,6 +10,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import android.util.AttributeSet
 import br.com.cvaccari.moneytransfer.R
+import br.com.cvaccari.moneytransfer.utils.StateIntDef
 
 
 class AvatarImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :

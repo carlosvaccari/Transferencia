@@ -1,10 +1,11 @@
-package br.com.cvaccari.moneytransfer
+package br.com.cvaccari.moneytransfer.sendmoney
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.custom.view.ContactView
 import br.com.cvaccari.moneytransfer.data.remote.vo.ContactVO
 import br.com.cvaccari.moneytransfer.extensions.phoneNumberFormat
