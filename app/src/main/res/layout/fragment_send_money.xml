@@ -37,4 +37,16 @@
             app:layout_constraintTop_toBottomOf="@id/imageview_statement_back"
             layout="@layout/content_contacts"/>
 
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loading2.json"
+            app:lottie_loop="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

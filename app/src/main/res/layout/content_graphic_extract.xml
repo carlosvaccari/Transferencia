@@ -3,17 +3,15 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+                                                   android:layout_height="200dp">
 
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_graphic_background"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:paddingBottom="40dp"
-            app:layout_constraintBottom_toBottomOf="@id/recyclerview_graphic"
             tools:listitem="@layout/item_graphyc_background"
-            android:layout_height="0dp"/>
+            android:layout_height="160dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

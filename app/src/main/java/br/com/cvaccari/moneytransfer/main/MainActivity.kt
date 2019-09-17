@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(supportFragmentManager.fragments[0] is MainContract.View) {
+        if(supportFragmentManager.findFragmentById(R.id.fragment_content) is MainContract.View) {
             finish()
         } else {
             super.onBackPressed()

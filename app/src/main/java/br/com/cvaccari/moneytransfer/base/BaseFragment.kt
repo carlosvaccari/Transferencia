@@ -1,11 +1,10 @@
 package br.com.cvaccari.moneytransfer.base
 
-import android.os.Handler
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
-import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
+import br.com.cvaccari.moneytransfer.R
 
 abstract class BaseFragment : Fragment() {
 
@@ -29,10 +28,7 @@ abstract class BaseFragment : Fragment() {
 
                 override fun onAnimationEnd(p0: Animation?) {
                     view?.setLayerType(View.LAYER_TYPE_NONE, null)
-                    //APENAS PARA DAR SENSAÇÂO DE CONEXÃO COM INTERNET
-                    Handler().postDelayed(Runnable {
-                        startFragment()
-                    }, 2000)
+                    startFragment()
                 }
             })
         }
@@ -42,12 +38,8 @@ abstract class BaseFragment : Fragment() {
 
     abstract fun startFragment()
 
-    fun currentFragment() : Fragment {
-        fragmentManager?.apply {
-            return fragments[0]
-        }
-
-        return Fragment()
+    fun currentFragment(): Fragment {
+        return fragmentManager?.findFragmentById(R.id.fragment_content) ?: Fragment()
     }
 
 }

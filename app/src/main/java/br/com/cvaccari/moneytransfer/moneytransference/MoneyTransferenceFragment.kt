@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import br.com.cvaccari.moneytransfer.ContactsAdapter
@@ -17,7 +16,6 @@ import br.com.cvaccari.moneytransfer.data.remote.vo.SendMoneyRequestVO
 import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
 import br.com.cvaccari.moneytransfer.listeners.OnClickListener
 import br.com.cvaccari.moneytransfer.listeners.OnConfirmedListener
-import br.com.cvaccari.moneytransfer.main.MainFragment
 import br.com.cvaccari.moneytransfer.utils.VisualFeedbackUtils
 import kotlinx.android.synthetic.main.content_contacts.*
 import kotlinx.android.synthetic.main.fragment_send_money.*
@@ -30,6 +28,10 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
 
     override val kodein: Kodein by kodein()
 
+    private var contactsList = mutableListOf<ContactVO>()
+
+    private var adapter = ContactsAdapter(contactsList)
+
     private val mPresenter: MoneyTransferenceContract.Presenter by instance()
 
     companion object {
@@ -38,13 +40,17 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val rootview = inflater.inflate(R.layout.fragment_send_money, container, false)
         return rootview
     }
 
     override fun startFragment() {
-        if(currentFragment() !is MoneyTransferenceFragment) {
+        if (currentFragment() !is MoneyTransferenceFragment) {
             return
         }
         initViews()
@@ -56,10 +62,26 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
         imageview_statement_back.setOnClickListener {
             FlowManager.removeFragment(fragmentManager)
         }
+
+        initRecyclerview()
+    }
+
+    private fun initRecyclerview() {
+        val layoutManager = LinearLayoutManager(context, VERTICAL, false)
+        adapter.setClickListener(contactClicked)
+        recyclerview_contacts.layoutManager = layoutManager
+        recyclerview_contacts.setHasFixedSize(true)
+        recyclerview_contacts.isNestedScrollingEnabled = false
+        recyclerview_contacts.adapter = adapter
+        val controller = AnimationUtils.loadLayoutAnimation(
+            recyclerview_contacts.context,
+            R.anim.layout_animation_slide_from_bottom
+        )
+        recyclerview_contacts.layoutAnimation = controller
     }
 
     override fun showLoading(show: Boolean) {
-        if(show) {
+        if (show) {
             animation_loading.visibility = View.VISIBLE
             animation_loading.playAnimation()
         } else {
@@ -69,17 +91,9 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
     }
 
     override fun showUserContacts(contactsList: List<ContactVO>) {
-        val layoutManager = LinearLayoutManager(context, VERTICAL, false)
-        var adapter = ContactsAdapter(contactsList)
-        adapter.setClickListener(contactClicked)
-        recyclerview_contacts.layoutManager = layoutManager
-        recyclerview_contacts.setHasFixedSize(true)
-        recyclerview_contacts.isNestedScrollingEnabled = false
-        val controller = AnimationUtils.loadLayoutAnimation(recyclerview_contacts.getContext(), R.anim.layout_animation_slide_from_bottom)
-        recyclerview_contacts.layoutAnimation = controller
+        this.contactsList.addAll(contactsList)
+        recyclerview_contacts.adapter?.notifyDataSetChanged()
         recyclerview_contacts.scheduleLayoutAnimation()
-        recyclerview_contacts.adapter = adapter
-
     }
 
     override fun showOperationInitialized() {

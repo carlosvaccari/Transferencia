@@ -1,6 +1,7 @@
 package br.com.cvaccari.moneytransfer.extensions
 
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -74,35 +75,4 @@ fun TextView.onlyNumbersToDouble(): Double {
 
 private fun onlyDigits(textValue: String): String {
     return textValue.replace("[^\\d]".toRegex(), "")
-}
-
-fun View.expand() {
-    var matchParentMeasureSpec =
-        View.MeasureSpec.makeMeasureSpec((getParent() as View).getWidth(), View.MeasureSpec.EXACTLY);
-    var wrapContentMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-    measure(matchParentMeasureSpec, wrapContentMeasureSpec);
-    var targetHeight = getMeasuredHeight();
-
-    // Older versions of android (pre API 21) cancel animations for views with a height of 0.
-    getLayoutParams().height = 1;
-    setVisibility(View.VISIBLE);
-
-    var animation = object: Animation() {
-        override fun applyTransformation(interpolatedTime: Float, t: Transformation?) {
-            layoutParams.height = if (interpolatedTime.equals(1)) {
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            } else {
-                (targetHeight * interpolatedTime).toInt()
-            }
-            requestLayout()
-        }
-
-        override fun willChangeBounds(): Boolean {
-            return super.willChangeBounds()
-        }
-    }
-
-    // Expansion speed of 1dp/ms
-    animation.duration = (targetHeight / getContext().getResources().getDisplayMetrics().density).toLong();
-    startAnimation(animation);
 }

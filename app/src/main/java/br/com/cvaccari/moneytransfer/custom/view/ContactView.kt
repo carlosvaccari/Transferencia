@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.custom.view.AvatarImageView.SHOW_IMAGE
+import br.com.cvaccari.moneytransfer.custom.view.AvatarImageView.SHOW_INITIAL
 import br.com.cvaccari.moneytransfer.extensions.handleVisibility
 import br.com.cvaccari.moneytransfer.utils.SimpleTextWatcher
 import kotlinx.android.synthetic.main.view_contact.view.*
@@ -85,6 +86,18 @@ class ContactView(private val viewContext: Context, private val attrs: Attribute
 
     fun setImageText(text: String) {
         this.image.setText(text)
+    }
+
+    fun getImageView() : AvatarImageView {
+        return this.image
+    }
+
+    fun showImage(show: Boolean) {
+        if(show) {
+            this.image.state = SHOW_IMAGE
+        } else {
+            this.image.state = SHOW_INITIAL
+        }
     }
 
 }

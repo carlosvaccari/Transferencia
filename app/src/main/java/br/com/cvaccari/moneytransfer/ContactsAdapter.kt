@@ -1,5 +1,6 @@
 package br.com.cvaccari.moneytransfer
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,14 @@ import br.com.cvaccari.moneytransfer.custom.view.ContactView
 import br.com.cvaccari.moneytransfer.data.remote.vo.ContactVO
 import br.com.cvaccari.moneytransfer.extensions.phoneNumberFormat
 import br.com.cvaccari.moneytransfer.listeners.OnClickListener
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 
-class ContactsAdapter(private val contactsList: List<ContactVO>) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+class ContactsAdapter(private val contactsList: List<ContactVO>) :
+    RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
 
     private var listener: OnClickListener? = null
 
@@ -36,9 +43,34 @@ class ContactsAdapter(private val contactsList: List<ContactVO>) : RecyclerView.
             setFirstText(item.name)
             setSecondText(item.phone.phoneNumberFormat())
             setImageText(item.name)
+
             item.photo?.let {
                 val id = context.resources.getIdentifier(item.photo, "drawable", context.packageName)
-                setImageSrc(id)
+                Glide.with(holder.contactview.context)
+                    .load(id)
+                    .listener(object : RequestListener<Drawable>{
+                        override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            dataSource: DataSource?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            holder.contactview.showImage(true)
+                            return false
+                        }
+
+                        override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            holder.contactview.showImage(false)
+                            return false
+                        }
+                    })
+                    .into(holder.contactview.getImageView())
             }
             setOnClickListener {
                 listener?.apply {

@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cvaccari.moneytransfer.R
@@ -16,6 +14,7 @@ import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
 import kotlinx.android.synthetic.main.content_contacts.*
 import kotlinx.android.synthetic.main.content_graphic_extract.*
 import kotlinx.android.synthetic.main.fragment_extract.*
+import kotlinx.android.synthetic.main.fragment_extract.imageview_statement_back
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein

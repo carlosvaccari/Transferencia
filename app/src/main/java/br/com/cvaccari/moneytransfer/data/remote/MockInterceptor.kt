@@ -182,7 +182,7 @@ const val getTransfers = """
     "Valor": 24,
     "Token": "1d40d305-c836-43a2-b4db-acc56bcc1393",
     "Data": "2016-08-02T14:25:37.55",
-    "photo": "user_0"
+    "photo": "user_8"
 },
 {
     "Id": 11,
@@ -193,7 +193,7 @@ const val getTransfers = """
     "Valor": 24,
     "Token": "1d40d305-c836-43a2-b4db-acc56bcc1393",
     "Data": "2016-08-02T14:25:37.55",
-    "photo": "user_0"
+    "photo": "user_8"
 },
 {
     "Id": 12,
@@ -204,7 +204,7 @@ const val getTransfers = """
     "Valor": 24,
     "Token": "1d40d305-c836-43a2-b4db-acc56bcc1393",
     "Data": "2016-08-02T14:25:37.55",
-    "photo": "user_0"
+    "photo": "user_8"
 },
 {
     "Id": 13,
@@ -215,7 +215,7 @@ const val getTransfers = """
     "Valor": 24,
     "Token": "1d40d305-c836-43a2-b4db-acc56bcc1393",
     "Data": "2016-08-02T14:25:37.55",
-    "photo": "user_0"
+    "photo": "user_9"
 }
 ]
 }
