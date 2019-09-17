@@ -8,4 +8,5 @@
     <string name="money_transfer_success">Tudo certo! O dinheiro já foi enviado :)</string>
     <string name="my_email">carlosvaccari@gmail.com</string>
     <string name="my_name">Carlos Vaccari</string>
+    <string name="error_unkown">Erro desconhecido</string>
 </resources>

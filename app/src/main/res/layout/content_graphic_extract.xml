@@ -10,6 +10,7 @@
             android:id="@+id/recyclerview_graphic_background"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
+            android:visibility="gone"
             tools:listitem="@layout/item_graphyc_background"
             android:layout_height="160dp"/>
 

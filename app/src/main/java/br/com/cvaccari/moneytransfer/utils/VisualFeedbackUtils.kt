@@ -8,8 +8,10 @@ import com.google.android.material.snackbar.Snackbar
 
 object VisualFeedbackUtils {
 
-    fun showSnackbar(message: String, view: View) {
-        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
+    fun showSnackbar(message: String, view: View?) {
+        view?.apply {
+            Snackbar.make(this, message, Snackbar.LENGTH_LONG).show()
+        }
     }
 
     fun hideKeyboard(context: Activity?) {

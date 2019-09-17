@@ -22,7 +22,7 @@ import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
 
-public class AmountDialog : DialogFragment(), KodeinAware {
+class AmountDialog : DialogFragment(), KodeinAware {
 
     override val kodein: Kodein by kodein()
 
