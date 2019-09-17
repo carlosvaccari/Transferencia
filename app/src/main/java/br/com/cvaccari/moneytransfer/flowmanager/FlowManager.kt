@@ -1,21 +1,12 @@
 package br.com.cvaccari.moneytransfer.flowmanager
 
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import br.com.cvaccari.moneytransfer.ContactsAdapter
 import br.com.cvaccari.moneytransfer.R
-import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferenceFragment
-import kotlinx.android.synthetic.main.content_contacts.*
 
-class FlowManager(fragmentManager: FragmentManager) {
+class FlowManager {
 
     companion object {
         fun showFragment(fragment: Fragment, fragmentManager: FragmentManager?) {

@@ -18,7 +18,7 @@ interface MoneyTransferenceContract {
         fun showLoading(show: Boolean)
     }
 
-    interface Presenter : BasePresenter<MoneyTransferenceContract.View> {
+    interface Presenter : BasePresenter<View> {
         fun getUserContacts()
 
         fun sendMoney(sendMoneyRequest: SendMoneyRequestVO)

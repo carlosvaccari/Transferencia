@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import androidx.fragment.app.Fragment
 import br.com.cvaccari.moneytransfer.R
 import br.com.cvaccari.moneytransfer.base.BaseFragment
+import br.com.cvaccari.moneytransfer.extensions.textToString
 import br.com.cvaccari.moneytransfer.flowmanager.FlowManager
 import br.com.cvaccari.moneytransfer.moneytransference.MoneyTransferenceFragment
-import br.com.cvaccari.moneytransfer.extensions.textToString
 import br.com.cvaccari.moneytransfer.transferencehistory.ExtractFragment
 import br.com.cvaccari.moneytransfer.utils.VisualFeedbackUtils
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -32,19 +29,16 @@ class MainFragment : BaseFragment(), KodeinAware, MainContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val rootview = inflater.inflate(R.layout.fragment_main, container, false)
         return rootview
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun startFragment() {
-        if(currentFragment() !is MainFragment) {
-            return
-        }
         initViews()
         mPresenter.getToken(textview_user_name.textToString(), textview_user_phone.textToString())
     }

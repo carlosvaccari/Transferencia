@@ -23,7 +23,7 @@ class SharedPrefsStorage(val context: Context) {
 
     fun getUserToken(): String {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return mSharedPreferences.getString(USER_TOKEN, "")
+        return mSharedPreferences.getString(USER_TOKEN, "") ?: ""
     }
 
 }

@@ -50,9 +50,6 @@ class MoneyTransferenceFragment : BaseFragment(), KodeinAware, MoneyTransference
     }
 
     override fun startFragment() {
-        if (currentFragment() !is MoneyTransferenceFragment) {
-            return
-        }
         initViews()
         mPresenter.attachView(this)
         mPresenter.getUserContacts()

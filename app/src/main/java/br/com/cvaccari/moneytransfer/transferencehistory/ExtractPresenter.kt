@@ -53,10 +53,8 @@ class ExtractPresenter(val dataFacade: DataFacade,
         })
 
         val maxValue = graphicItens[0].amount
-//        (it.amount / 100) * 100 / maxValue
         graphicItens.forEach {
             it.amountNormalized = (it.amount.toFloat() / maxValue)
-//            it.amountNormalized = (it.amount * 100 / maxValue).toFloat() / 100
         }
 
         mView?.showGraphicData(graphicItens)

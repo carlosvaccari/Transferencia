@@ -44,9 +44,6 @@ class ExtractFragment : BaseFragment(), KodeinAware, ExtractContract.View {
     }
 
     override fun startFragment() {
-        if(currentFragment() !is ExtractFragment) {
-            return
-        }
         initViews()
         mPresenter.attachView(this)
         mPresenter.getTransfers()

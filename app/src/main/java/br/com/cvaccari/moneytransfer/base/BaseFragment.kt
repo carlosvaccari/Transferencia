@@ -28,7 +28,7 @@ abstract class BaseFragment : Fragment() {
 
                 override fun onAnimationEnd(p0: Animation?) {
                     view?.setLayerType(View.LAYER_TYPE_NONE, null)
-                    startFragment()
+                    (currentFragment() as BaseFragment).startFragment()
                 }
             })
         }

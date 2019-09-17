@@ -1,4 +1,3 @@
-import br.com.bakery.simplewallpaperlib.data.remote.LogInterceptor
 import br.com.cvaccari.moneytransfer.BuildConfig
 import br.com.cvaccari.moneytransfer.data.remote.MockInterceptor
 import okhttp3.OkHttpClient
@@ -24,11 +23,6 @@ class RetrofitClient {
                     .client(OkHttpClient.Builder()
                             .addInterceptor(MockInterceptor())
                             .build())
-//                        LogInterceptor().getClient())
-//                        OkHttpClient.Builder()
-//                            .addInterceptor(MockInterceptor())
-//                            .build()
-//                    )
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()

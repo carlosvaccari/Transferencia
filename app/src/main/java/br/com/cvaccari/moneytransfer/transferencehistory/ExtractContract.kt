@@ -16,7 +16,7 @@ interface ExtractContract {
         fun showLoading(show: Boolean)
     }
 
-    interface Presenter : BasePresenter<ExtractContract.View> {
+    interface Presenter : BasePresenter<View> {
         fun getTransfers()
     }
 }

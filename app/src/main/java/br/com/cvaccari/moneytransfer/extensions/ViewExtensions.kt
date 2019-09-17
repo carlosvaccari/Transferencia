@@ -1,11 +1,7 @@
 package br.com.cvaccari.moneytransfer.extensions
 
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.Transformation
 import android.widget.EditText
 import android.widget.TextView
 import br.com.cvaccari.moneytransfer.utils.SimpleTextWatcher

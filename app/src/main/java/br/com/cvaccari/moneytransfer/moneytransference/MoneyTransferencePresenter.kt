@@ -1,14 +1,15 @@
 package br.com.cvaccari.moneytransfer.moneytransference
 
-import android.os.Handler
 import br.com.cvaccari.moneytransfer.data.remote.DataFacade
 import br.com.cvaccari.moneytransfer.data.remote.vo.SendMoneyRequestVO
 import br.com.cvaccari.moneytransfer.utils.SharedPrefsStorage
 import io.reactivex.disposables.Disposable
-import java.util.concurrent.TimeUnit
 
 
-class MoneyTransferencePresenter(val dataFacade: DataFacade, val sharedPrefsStorage: SharedPrefsStorage) : MoneyTransferenceContract.Presenter {
+class MoneyTransferencePresenter(
+    val dataFacade: DataFacade,
+    val sharedPrefsStorage: SharedPrefsStorage
+) : MoneyTransferenceContract.Presenter {
 
     private var mView: MoneyTransferenceContract.View? = null
 
